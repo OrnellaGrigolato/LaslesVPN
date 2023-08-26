@@ -1,0 +1,20 @@
+.embla {
+  overflow-x: hidden;
+  --slide-spacing: 2rem;
+  --slide-size: 100%;
+}
+.embla__container {
+  display: flex;
+}
+
+@media (max-width: 1100px) {
+  .embla__slide {
+    flex: 0 0 var(--slide-size);
+    min-width: 0;
+    position: relative;
+  }
+  .embla__container {
+    touch-action: pan-y;
+    margin-left: calc(var(--slide-spacing) * -1);
+  }
+}
