@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Header = () => {
   return (
     <header>
@@ -8,14 +9,14 @@ const Header = () => {
             <strong className="text-5xl">LaslesVPN.</strong>
           </h1>
           <p className="mt-5 leading-7 text-gray">
-            Provide a network for all your needs with ease and fun using
+            Provide Link network for all your needs with ease and fun using
             <strong> LaslesVPN</strong> discover interesting features from us.
           </p>
-          <a href="/get-started">
+          <Link to="/get-started">
             <button className="bg-red text-white rounded-[10px] w-64 h-14 mt-12 shadow-myRed">
               Get Started
             </button>
-          </a>
+          </Link>
         </div>
         <img
           src="./Illustration 1.svg"

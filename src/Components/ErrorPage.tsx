@@ -1,5 +1,6 @@
 import { Navbar } from "./Navbar";
 import Button from "./Utillities/Button";
+import { Link } from "react-router-dom";
 const ErrorPage = () => {
   return (
     <>
@@ -10,9 +11,9 @@ const ErrorPage = () => {
             Sorry, this page is not yet complete, but don't worry, we are
             working on it.
           </h1>
-          <a href="./">
+          <Link to="./">
             <Button buttonType="border" text="Back to home page"></Button>
-          </a>
+          </Link>
         </div>
         <img className="w-96 max-xl:mt-10" src="./errorPage.svg" alt="" />
       </section>

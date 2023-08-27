@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 const Footer = () => {
   const dateObject = new Date();
   return (
@@ -7,8 +8,8 @@ const Footer = () => {
           <div className="w-1/2  max-xl:w-full">
             <img src="./Logo.svg" alt="" />
             <p className="mt-6 mb-10 w-[21rem] leading-loose  max-xl:w-full">
-              <strong>LaslesVPN</strong> is a private virtual network that has
-              unique features and has high security.
+              <strong>LaslesVPN</strong> is Link private virtual network that
+              has unique features and has high security.
             </p>
             <div className="flex gap-3">
               <a
@@ -44,22 +45,22 @@ const Footer = () => {
             </h4>
             <ul className="flex flex-col gap-4">
               <li>
-                <a href="/download">Download</a>
+                <Link to="/download">Download</Link>
               </li>
               <li>
-                <a href="/pricing">Pricing</a>
+                <Link to="/pricing">Pricing</Link>
               </li>
               <li>
-                <a href="/locations">Locations</a>
+                <Link to="/locations">Locations</Link>
               </li>
               <li>
-                <a href="/servers">Server</a>
+                <Link to="/servers">Server</Link>
               </li>
               <li>
-                <a href="/countries">Countries</a>
+                <Link to="/countries">Countries</Link>
               </li>
               <li>
-                <a href="/blog">Blog</a>
+                <Link to="/blog">Blog</Link>
               </li>
             </ul>
           </div>
@@ -70,22 +71,22 @@ const Footer = () => {
             </h4>
             <ul className="flex flex-col gap-4">
               <li>
-                <a href="/laslesVPN">LaslesVPN ? </a>
+                <Link to="/laslesVPN">LaslesVPN ? </Link>
               </li>
               <li>
-                <a href="/faq">FAQ</a>
+                <Link to="/faq">FAQ</Link>
               </li>
               <li>
-                <a href="/tutorials">Tutorials</a>
+                <Link to="/tutorials">Tutorials</Link>
               </li>
               <li>
-                <a href="/about-us">About Us</a>
+                <Link to="/about-us">About Us</Link>
               </li>
               <li>
-                <a href="/privacy-policy">Privacy Policy</a>
+                <Link to="/privacy-policy">Privacy Policy</Link>
               </li>
               <li>
-                <a href="/terms-of-service">Terms of Service</a>
+                <Link to="/terms-of-service">Terms of Service</Link>
               </li>
             </ul>
           </div>
@@ -95,10 +96,10 @@ const Footer = () => {
             </h4>
             <ul className="flex flex-col gap-4">
               <li>
-                <a href="/affiliate">Affiliate</a>
+                <Link to="/affiliate">Affiliate</Link>
               </li>
               <li>
-                <a href="/become-partner">Become Partner</a>
+                <Link to="/become-partner">Become Partner</Link>
               </li>
             </ul>
           </div>

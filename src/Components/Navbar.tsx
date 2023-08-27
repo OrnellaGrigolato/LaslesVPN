@@ -13,9 +13,9 @@ export const Navbar = () => {
           : "navbar h-20 flex text-center w-4/5 mx-auto items-center transition-all"
       }
     >
-      <a href="./" className={isOpen ? "hidden" : "w-1/4 max-xl:w-2/3"}>
+      <Link to="./" className={isOpen ? "hidden" : "w-1/4 max-xl:w-2/3"}>
         <img src="./Logo.svg" alt="Lasles VPM Logo" />
-      </a>
+      </Link>
       <ul className="nav-links w-3/5 text-gray max-xl:w-full">
         {isOpen ? (
           <div
@@ -41,17 +41,17 @@ export const Navbar = () => {
           }
         >
           <li>
-            <a href="/about" className={isOpen ? "text-white" : ""}>
+            <Link to="/about" className={isOpen ? "text-white" : ""}>
               About
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="/LaslesVPN/features"
+            <Link
+              to="/LaslesVPN/features"
               className={isOpen ? "text-white" : ""}
             >
               Features
-            </a>
+            </Link>
           </li>
           <li>
             <Link to="/pricing" className={isOpen ? "text-white" : ""}>
@@ -59,34 +59,34 @@ export const Navbar = () => {
             </Link>
           </li>
           <li>
-            <a href="/testimonials" className={isOpen ? "text-white" : ""}>
+            <Link to="/testimonials" className={isOpen ? "text-white" : ""}>
               Testimonials
-            </a>
+            </Link>
           </li>
           <li>
-            <a href="/help" className={isOpen ? "text-white" : ""}>
+            <Link to="/help" className={isOpen ? "text-white" : ""}>
               Help
-            </a>
+            </Link>
           </li>
           {isOpen ? (
             <li className="flex flex-col font-bold text-lg gap-16">
-              <a href="/sign-in" className="text-white">
+              <Link to="/sign-in" className="text-white">
                 Sign In
-              </a>
-              <a href="/sign-up" className="text-white">
+              </Link>
+              <Link to="/sign-up" className="text-white">
                 Sign Up
-              </a>
+              </Link>
             </li>
           ) : null}
         </div>
       </ul>
       <div className="flex gap-6 items-center  max-xl:hidden">
-        <a href="/sign-in">
+        <Link to="/sign-in">
           <Button text="Sign In" buttonType="noBorder"></Button>
-        </a>
-        <a href="/sign-up">
+        </Link>
+        <Link to="/sign-up">
           <Button text="Sign Up" buttonType="border"></Button>
-        </a>
+        </Link>
       </div>
     </nav>
   );

@@ -1,5 +1,6 @@
 import Button from "../Utillities/Button";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Card = (props: propTypes) => {
   const [hover, setHover] = useState(false);
@@ -28,13 +29,13 @@ const Card = (props: propTypes) => {
           <div className="inline font-normal"> / mo</div>
         )}
       </p>
-      <a href="/buy-plan">
+      <Link to="/buy-plan">
         {hover ? (
           <Button buttonType="active" text="Select" />
         ) : (
           <Button buttonType="border" text="Select" />
         )}
-      </a>
+      </Link>
     </div>
   );
 };
