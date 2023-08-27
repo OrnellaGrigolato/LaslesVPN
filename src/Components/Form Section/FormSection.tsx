@@ -25,15 +25,7 @@ const FormSection = () => {
 
   const [result, setResult] = useState<string>();
 
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    trigger,
-    getFieldState,
-    getValues,
-    reset,
-  } = useForm({
+  const { register, handleSubmit, trigger, getFieldState, reset } = useForm({
     resolver: yupResolver(schema),
   });
 
@@ -93,6 +85,7 @@ const FormSection = () => {
       }
     });
   };
+  console.log(result);
   return (
     <section className="w-4/5 mx-auto mt-16 relative z-10 bg-white rounded-md max-xl:text-center">
       <ToastContainer />
