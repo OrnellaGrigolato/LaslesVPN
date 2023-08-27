@@ -1,6 +1,6 @@
 
 # LaslesVPN
-[Leer esto en español](https://github.com/OrnellaGrigolato/LaslesVPN/blob/master/README.en.md)
+[Leer esto en español](https://github.com/OrnellaGrigolato/LaslesVPN/blob/master/README.md)
 
 LaslesVPN is a landing page that promotes a company's product.
 
@@ -9,7 +9,7 @@ LaslesVPN is a landing page that promotes a company's product.
 
 ## Working App
 
-![Working App](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Working App](https://github.com/OrnellaGrigolato/LaslesVPN/blob/master/LaslesVPN.gif)
 
 
 ## Sections & Features
