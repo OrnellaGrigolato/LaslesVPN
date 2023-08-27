@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "./Utillities/Button.tsx";
+import { Link } from "react-router-dom";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -45,14 +46,17 @@ export const Navbar = () => {
             </a>
           </li>
           <li>
-            <a href="/features" className={isOpen ? "text-white" : ""}>
+            <a
+              href="/LaslesVPN/features"
+              className={isOpen ? "text-white" : ""}
+            >
               Features
             </a>
           </li>
           <li>
-            <a href="/pricing" className={isOpen ? "text-white" : ""}>
+            <Link to="/pricing" className={isOpen ? "text-white" : ""}>
               Pricing
-            </a>
+            </Link>
           </li>
           <li>
             <a href="/testimonials" className={isOpen ? "text-white" : ""}>
