@@ -4,11 +4,22 @@ import { BASE_URL } from "../../App";
 import useEmblaCarousel from "embla-carousel-react";
 import "./carrouselStyle.css";
 import Dots from "./Dots";
+import useFetch from "../Utillities/useFetch";
+
+type Testimonial = {
+  fullName: string;
+  avatar: string;
+  testimonial: string;
+  rate: number;
+  city: string;
+};
 
 const Carrusel = () => {
-  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string>();
+  const { data, loading, error } = useFetch<Testimonial[]>(
+    `${BASE_URL}/api/testimonial`
+  );
+
+  // Carrousel
   const [emblaRef, emblaApi] = useEmblaCarousel({
     align: "start",
     loop: false,
@@ -40,30 +51,6 @@ const Carrusel = () => {
   const scrollNext = useCallback(() => {
     if (emblaApi) emblaApi.scrollNext();
   }, [emblaApi]);
-
-  type Testimonial = {
-    fullName: string;
-    avatar: string;
-    testimonial: string;
-    rate: number;
-    city: string;
-  };
-
-  useEffect(() => {
-    setLoading(true);
-    fetch(`${BASE_URL}/api/testimonial`)
-      .then((response) => {
-        response.json().then((result) => {
-          setTestimonials(result);
-        });
-      })
-      .catch((error) => {
-        setError(error.message);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
 
   if (loading) {
     return (
@@ -99,10 +86,10 @@ const Carrusel = () => {
     );
   }
 
-  return (
+  return data ? (
     <div className="embla" ref={emblaRef}>
       <div className="embla__container">
-        {testimonials.map((elem) => {
+        {data?.map((elem) => {
           return (
             <div className="embla__slide">
               <Card
@@ -118,7 +105,7 @@ const Carrusel = () => {
       </div>
       <div className="flex justify-between items-center">
         <Dots
-          itemsLength={testimonials.length}
+          itemsLength={data.length}
           selectedIndex={selectedIndex}
           setSelectedIndex={changeIndexFromDots}
         />
@@ -140,7 +127,7 @@ const Carrusel = () => {
           </button>
           <button className="embla__next ml-6" onClick={scrollNext}>
             {selectedIndex ===
-            testimonials.length - (window.innerWidth < 1100 ? 1 : 2) ? (
+            data.length - (window.innerWidth < 1100 ? 1 : 2) ? (
               <img
                 src="./rigthNoActiveBtn.png"
                 alt=""
@@ -157,7 +144,7 @@ const Carrusel = () => {
         </div>
       </div>
     </div>
-  );
+  ) : null;
 };
 
 export default Carrusel;

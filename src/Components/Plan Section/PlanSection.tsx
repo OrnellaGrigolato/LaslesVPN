@@ -1,34 +1,34 @@
-import { useEffect, useState } from "react";
 import Card from "./Card";
 import { BASE_URL } from "../../App";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import useFetch from "../Utillities/useFetch";
+
+type Suscription = {
+  title: string;
+  price: number | "Free";
+  benefits: string[];
+  currency: "U$S" | "$ARG";
+  type: "monthly" | "daily" | "weekly";
+};
 
 const PlanSection = () => {
-  const [subcriptions, setSubcriptions] = useState<Suscription[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string>();
-
-  type Suscription = {
-    title: string;
-    price: number | "Free";
-    benefits: string[];
-    currency: "U$S" | "$ARG";
-    type: "monthly" | "daily" | "weekly";
-  };
+  let { data, loading, error } = useFetch<Suscription[]>(
+    `${BASE_URL}/api/subscription`
+  );
 
   const doFetch = (callFromButton?: boolean) => {
     fetch(`${BASE_URL}/api/subscription`)
       .then((response) => {
         response.json().then((result) => {
-          setSubcriptions(result);
+          data = result;
         });
       })
       .catch((error) => {
-        setError(error.message);
+        error = error.message;
       })
       .finally(() => {
-        setLoading(false);
+        loading = false;
         callFromButton
           ? toast.success("Plans updated successfully.", {
               position: "top-right",
@@ -43,11 +43,6 @@ const PlanSection = () => {
           : null;
       });
   };
-
-  useEffect(() => {
-    setLoading(true);
-    doFetch();
-  }, []);
 
   if (loading) {
     return (
@@ -101,7 +96,7 @@ const PlanSection = () => {
     );
   }
 
-  return (
+  return data ? (
     <section className="mt-40 text-center w-4/5 mx-auto max-xl:mt-20">
       <h2 className="font-medium leading-relaxed text-4xl mb-5">
         Choose Your Plan
@@ -117,7 +112,7 @@ const PlanSection = () => {
         Update Plans
       </button>
       <div className="flex justify-around gap-10 max-xl:flex-col max-xl:justify-center max-xl:items-center">
-        {subcriptions.map((elem) => {
+        {data.map((elem) => {
           return (
             <Card
               key={elem.title}
@@ -132,7 +127,7 @@ const PlanSection = () => {
         })}
       </div>
     </section>
-  );
+  ) : null;
 };
 
 export default PlanSection;
