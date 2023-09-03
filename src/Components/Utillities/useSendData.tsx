@@ -29,7 +29,7 @@ function useFetch(url: string) {
   });
 
   const onSubmit: SubmitHandler<FormData> = (data) => {
-    fetch(`${BASE_URL}` + url, {
+    fetch(`${BASE_URL + url}`, {
       method: "POST",
       body: JSON.stringify(data),
     }).then((response) => {
@@ -88,6 +88,7 @@ function useFetch(url: string) {
   return {
     register,
     sendForm,
+    result,
   };
 }
 
