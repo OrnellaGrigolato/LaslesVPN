@@ -91,7 +91,7 @@ const Carrusel = () => {
       <div className="embla__container">
         {data?.map((elem) => {
           return (
-            <div className="embla__slide">
+            <div key={elem.testimonial} className="embla__slide">
               <Card
                 profilePicture={elem.avatar}
                 name={elem.fullName}
