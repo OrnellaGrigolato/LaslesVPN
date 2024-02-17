@@ -10,7 +10,7 @@ import Footer from "./Components/Footer";
 import "./App.css";
 
 export const BASE_URL =
-  "https://6xrb5goi1l.execute-api.us-east-1.amazonaws.com";
+  "https://b1hh8w6utk.execute-api.us-east-1.amazonaws.com";
 function App() {
   return (
     <div className="font-[Rubik]">
